@@ -1,4 +1,12 @@
 
+var bindable = (function(o){var b=o.bind;return b.call(b,b);})(Function.prototype);
+var callable = bindable(Function.call);
+var log = callable(console.log, console);
+log('hello world'); // --> "hello world"
+
+
+====
+
 var callable=(function(o){var b=o.bind;return b.call(b,o.call);})(Function.prototype);
 var Slice=callable(Array.prototype.slice);
 
